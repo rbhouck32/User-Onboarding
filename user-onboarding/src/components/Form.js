@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as yup from "yup";
 import axios from "axios";
-import styled from "styled-components";
-import "./Form.css";
+import { StyledLabel, StyledField, StyledDropDown, FormStyle } from "./Style";
+
 const NewForm = ({ touched, errors, status }) => {
   const [user, setUser] = useState({});
 
@@ -12,73 +12,65 @@ const NewForm = ({ touched, errors, status }) => {
   }, [status]);
 
   return (
-    <div className="form-container">
+    <FormStyle>
       <Form className="form">
-        <label className="text-input">
+        <h2>Please Fill Out</h2>
+        <StyledLabel>
           First Name:
-          <Field
-            className="field-input"
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-          />
+          <StyledField type="text" name="firstName" placeholder="First Name" />
           {touched.firstName && errors.firstName && (
             <p className="errors">{errors.firstName}</p>
           )}
-        </label>
+        </StyledLabel>
 
-        <label className="text-input">
+        <StyledLabel>
           Last Name:
-          <Field
-            className="field-input"
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-          />
+          <StyledField type="text" name="lastName" placeholder="Last Name" />
           {touched.lastName && errors.lastName && (
             <p className="errors">{errors.lastName}</p>
           )}
-        </label>
-        <label className="text-input">
+        </StyledLabel>
+        <StyledLabel>
           Email:
-          <Field
-            className="field-input"
-            type="text"
-            name="email"
-            placeholder="email"
-          />
+          <StyledField type="text" name="email" placeholder="Email" />
           {touched.email && errors.email && (
             <p className="errors">{errors.email}</p>
           )}
-        </label>
-        <label className="text-input">
+        </StyledLabel>
+        <StyledLabel>
           Password:
-          <Field
-            className="field-input"
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
+          <StyledField type="password" name="password" placeholder="Password" />
           {touched.password && errors.password && (
             <p className="errors">{errors.password}</p>
           )}
-        </label>
-        <label className="checkbox-container">
+        </StyledLabel>
+        <StyledLabel>
+          Role:
+          <StyledDropDown component="select" name="role">
+            <option>Choose an Option</option>
+            <option value="Front-End-Developer">Front-End Developer</option>
+            <option value="Back-End-Developer">Back-End Developer</option>
+            <option value="Data-Science">Data Science</option>
+            <option value="UI/UX">UI Designer</option>
+          </StyledDropDown>
+        </StyledLabel>
+        <StyledLabel>
           Terms of Service
-          <Field type="checkbox" name="terms" />
+          <StyledField type="checkbox" name="terms" />
           <span className="checkmark" />
-        </label>
-        <button>Submit!</button>
+        </StyledLabel>
+        <button type="submit">Submit!</button>
       </Form>
       <div className="card-returned">
         {user.firstName && (
-          <ul key={user.id}>
-            <li>Name: {user.firstName}</li>
-            <li>Email: {user.email}</li>
-          </ul>
+          <div key={user.id}>
+            <p>Name: {user.firstName}</p>
+            <p>Email: {user.email}</p>
+            <p>Role: {user.role}</p>
+          </div>
         )}
       </div>
-    </div>
+    </FormStyle>
   );
 };
 
@@ -88,12 +80,13 @@ export default withFormik({
     lastName: props.lastName || "",
     email: props.email || "",
     password: props.email || "",
-    terms: false
+    terms: false,
+    role: props.role || ""
   }),
   validationSchema: yup.object().shape({
     firstName: yup.string().required("Name is Required"),
     lastName: yup.string().required("Name is Required"),
-    password: yup.string().required("Number is Required"),
+    password: yup.string().required("Password is Required"),
     email: yup
       .string()
       .email()

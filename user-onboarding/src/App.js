@@ -6,9 +6,7 @@ function App() {
   return (
     <div className="App-body">
       <h1>Please Check out our Form Below!</h1>
-      <div className="form-container">
-        <NewForm />
-      </div>
+      <NewForm />
     </div>
   );
 }

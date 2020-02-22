@@ -4,6 +4,8 @@
   width: 200px;
   margin-top: 25px;
   background-color: #e63;
+  border-radius: 10px;
+  border: 1px solid lightslategray;
 }
 
 .form {
@@ -12,6 +14,7 @@
   margin: 0 auto;
   padding-top: 45px;
   margin-bottom: 5px;
+  border-radius: 10px;
 }
 .text-input {
   text-align: center;
@@ -29,6 +32,9 @@
 
 .field-input {
   height: 25px;
+  border: none;
+  border-radius: 10px;
+  padding-top: 5px;
 }
 
 .checkbox-container {
@@ -45,4 +51,9 @@ button {
   width: 150px;
   height: 30px;
   box-shadow: #222;
+}
+
+button:hover {
+  color: #eee;
+  background-color: #222;
 }

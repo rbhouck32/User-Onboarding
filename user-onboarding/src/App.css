@@ -4,12 +4,5 @@
   height: 100%;
   width: 80%;
   margin: 0 auto;
-}
-
-.form-container {
-  height: 80%;
-  width: 80%;
-  margin: 0 auto;
-
-  background-color: #eee;
+  padding-bottom: 50px;
 }
