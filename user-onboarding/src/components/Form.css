@@ -1,0 +1,48 @@
+.form-container {
+  margin: 0 auto;
+  justify-content: center;
+  width: 200px;
+  margin-top: 25px;
+  background-color: #e63;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  padding-top: 45px;
+  margin-bottom: 5px;
+}
+.text-input {
+  text-align: center;
+  justify-content: center;
+  width: 100px;
+  margin: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: lightgreen;
+}
+
+.input {
+  margin-top: 5px;
+}
+
+.field-input {
+  height: 25px;
+}
+
+.checkbox-container {
+  margin: 0 auto;
+}
+
+button {
+  margin: 10px auto;
+  font-weight: bold;
+  background-color: lightslategrey;
+  color: #eee;
+  border: none;
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  box-shadow: #222;
+}
